@@ -17,8 +17,8 @@ write_api = client.write_api()
 try:
     ser = serial.Serial(serial_port, baud_rate, timeout=timeout)
     print(f"Connected to {serial_port} at {baud_rate} baud")
-except:
-    print("Failed to connect to serial port")
+except Exception err:
+    print(f"Failed to connect to serial port({err})")
     exit()
 
 try:
