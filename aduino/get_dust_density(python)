@@ -7,7 +7,7 @@ baud_rate = 9600
 timeout = 2
 
 influxdb_url = "http://localhost:8086/"
-influxdb_token = "2PQL6VerCQl02yKa4Ku2uliCSSgLFNSI3jD3awpHEFmMm6hkwM8gP-b_PEOdi0F6RLAjgQnc_zLXmnG5nQaUPQ=="
+influxdb_token = "api token"
 influxdb_org = "test"
 influxdb_bucket = "dust"
 
