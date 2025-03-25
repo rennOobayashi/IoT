@@ -20,6 +20,8 @@ void setup() {
 void loop() {
   long distance = get_distance();
 
+  delay(150);
+
   if (distance > 100) {
     lcd.setCursor(5, 1);
     lcd.print(distance);
@@ -41,7 +43,7 @@ void loop() {
     lcd.setCursor(8, 1);
     lcd.print("cm");
   }
-  delay(500);
+  delay(350);
 
   lcd.clear();
 }
