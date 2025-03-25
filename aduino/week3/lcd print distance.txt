@@ -1,0 +1,64 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#define TRIGGER 12
+#define ECHO 13
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+void setup() {
+  pinMode(TRIGGER, OUTPUT);
+  pinMode(ECHO, INPUT);
+
+  lcd.init();
+  lcd.backlight();
+  
+  lcd.setCursor(4, 0);
+  lcd.print("na-ho-ne");
+  delay(2000);
+}
+
+void loop() {
+  long distance = get_distance();
+
+  if (distance > 100) {
+    lcd.setCursor(5, 1);
+    lcd.print(distance);
+
+    lcd.setCursor(8, 1);
+    lcd.print("cm");
+  }
+  else if (distance > 10) {
+    lcd.setCursor(6, 1);
+    lcd.print(distance);
+
+    lcd.setCursor(8, 1);
+    lcd.print("cm");
+  }
+  else {
+    lcd.setCursor(7, 1);
+    lcd.print(distance);
+
+    lcd.setCursor(8, 1);
+    lcd.print("cm");
+  }
+  delay(500);
+  
+  lcd.clear();
+}
+
+
+int get_distance() {
+  long duration, distance;
+
+  digitalWrite(TRIGGER, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIGGER, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIGGER, LOW);
+  
+  duration = pulseIn(ECHO, HIGH);
+
+  distance = duration * 17 / 1000;
+
+  return distance;
+}
