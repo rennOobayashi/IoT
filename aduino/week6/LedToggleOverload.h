@@ -6,7 +6,7 @@
 class LedToggle {
 public:
        LedToggle(int pin);
-       LedToggle(int pin, long delay);
+       LedToggle(int pin, unsigned long delay = 0);
        ~LedToggle() {}
        void toggle();
 private:
