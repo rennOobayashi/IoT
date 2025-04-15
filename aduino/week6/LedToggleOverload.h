@@ -4,15 +4,14 @@
 #include "Arduino.h"
 
 class LedToggle {
-public:
-       LedToggle(int pin);
-       LedToggle(int pin, unsigned long delay = 0);
-       ~LedToggle() {}
-       void toggle();
 private:
-        int _pin;
         long _delay;
-        bool _state;      
+        int _pin;
+        bool _state;  
+public:
+       LedToggle(int pin, unsigned long delay = 0);
+       ~LedToggle() { Serial.println("end"); }
+       void toggle();    
 };
 
 #endif
