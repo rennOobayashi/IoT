@@ -1,0 +1,23 @@
+#include <SimpleTimer.h>
+SimpleTimer simpCnt;
+
+unsigned long loopCnt;
+
+void print_callback() {
+  Serial.println(loopCnt);
+  loopCnt = 0;
+}
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println();
+
+  simpCnt.setInterval(1000, print_callback);
+}
+
+void loop() {
+  simpCnt.run();
+
+  loopCnt++;
+}
+
