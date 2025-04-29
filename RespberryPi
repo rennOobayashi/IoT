@@ -1,0 +1,6 @@
+(y는 스킵 기능)
+sudo apt install vim -y
+
+sudo apt-get install fonts-unfonts-core y
+sudo apt-get install isbus-hanhul -y
+sudo reboot(재시작)
